@@ -1,0 +1,145 @@
+/* ── Endfield Color Theme ── */
+/* Key: #FFFA00 yellow | #0f0f0f bg | #111111 sidebar | #e6e6e6 text */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #0f0f0f;
+  color: #e6e6e6;
+  font-family: 'Segoe UI', 'Malgun Gothic', sans-serif;
+  min-height: 100vh;
+}
+
+.layout { display: flex; min-height: 100vh; }
+
+/* ── Sidebar ── */
+.sidebar {
+  width: 240px; min-width: 240px;
+  background: #111111;
+  border-right: 1px solid #242424;
+  position: sticky; top: 0; height: 100vh; overflow-y: auto;
+  flex-shrink: 0;
+}
+.sidebar-header {
+  padding: 20px 18px 16px;
+  border-bottom: 1px solid #242424;
+}
+.sidebar-logo {
+  font-size: 14px; font-weight: 700;
+  color: #FFFA00; letter-spacing: 1px; text-transform: uppercase;
+}
+.sidebar-sub { font-size: 10px; color: #444; margin-top: 4px; }
+
+.nav-home {
+  display: block; padding: 10px 18px;
+  text-decoration: none; color: #555;
+  font-size: 11px; border-bottom: 1px solid #1e1e1e;
+  transition: color 0.15s;
+}
+.nav-home:hover { color: #FFFA00; }
+
+.nav-item {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 18px;
+  text-decoration: none; color: #777;
+  font-size: 12px; border-left: 2px solid transparent;
+  transition: all 0.15s;
+}
+.nav-item:hover { background: #181800; color: #FFFA00; border-left-color: #FFFA00; }
+.nav-item.active { background: #1c1c00; color: #FFFA00; border-left-color: #FFFA00; font-weight: 600; }
+
+.nav-num {
+  font-size: 10px; color: #3a3a3a; min-width: 20px;
+  font-family: monospace; text-align: right;
+}
+.nav-item:hover .nav-num, .nav-item.active .nav-num { color: #888; }
+
+/* ── Main ── */
+.main { flex: 1; padding: 30px 38px; overflow-y: auto; }
+
+header {
+  margin-bottom: 22px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #222;
+}
+.session-label {
+  font-size: 10px; letter-spacing: 2px; color: #FFFA00;
+  text-transform: uppercase; margin-bottom: 6px; font-weight: 700;
+}
+h1 { font-size: 20px; color: #f0f0f0; font-weight: 700; }
+.subtitle { font-size: 12px; color: #555; margin-top: 4px; }
+
+/* ── Tabs ── */
+.tabs { display: flex; gap: 8px; margin-bottom: 22px; }
+.tab {
+  padding: 7px 18px;
+  border: 1px solid #2a2a2a;
+  background: #141414;
+  color: #666; cursor: pointer;
+  font-size: 12px; border-radius: 2px;
+  transition: all 0.15s; font-family: inherit;
+}
+.tab.active { background: #FFFA00; border-color: #FFFA00; color: #000; font-weight: 700; }
+.tab:hover:not(.active) { background: #1c1c00; color: #FFFA00; border-color: #333300; }
+
+/* ── Section ── */
+.section {
+  background: #141414;
+  border: 1px solid #222;
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+.section-title {
+  font-size: 10px; color: #FFFA00;
+  text-transform: uppercase; letter-spacing: 2px;
+  margin-bottom: 16px; font-weight: 700;
+  display: flex; align-items: center; gap: 8px;
+}
+.section-title::after { content: ''; flex: 1; height: 1px; background: #222; }
+
+/* ── Dialogue ── */
+.dialogue { display: flex; flex-direction: column; gap: 12px; }
+.line {
+  background: #111111;
+  border-radius: 4px;
+  padding: 14px 16px;
+  border-left: 2px solid #FFFA00;
+}
+.speaker {
+  font-size: 10px; color: #FFFA00;
+  font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; margin-bottom: 7px;
+}
+
+/* ── Text layers ── */
+.jp { font-size: 18px; color: #f0f0f0; line-height: 1.7; display: block; }
+.romaji { font-size: 13px; color: #FFFA00; margin-top: 5px; line-height: 1.5; display: block; opacity: 0.85; }
+.kr { font-size: 13px; color: #aaaaaa; margin-top: 4px; line-height: 1.5; display: block; }
+
+/* ── Vocab Grid ── */
+.vocab-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+.vocab-card {
+  background: #111111; border: 1px solid #242424;
+  border-radius: 4px; padding: 12px 14px; min-width: 110px;
+  text-align: center; transition: border-color 0.15s;
+}
+.vocab-card:hover { border-color: #FFFA00; }
+.vocab-card .jp { font-size: 18px; margin-bottom: 5px; }
+.vocab-card .romaji { font-size: 11px; margin-top: 3px; text-align: center; }
+.vocab-card .kr { font-size: 11px; margin-top: 3px; text-align: center; }
+
+/* ── Vocab Group ── */
+.vocab-group { margin-bottom: 18px; }
+.row-label {
+  font-size: 11px; color: #555;
+  margin-bottom: 8px;
+  padding-left: 8px;
+  border-left: 2px solid #FFFA00;
+}
+.vocab-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* ── View modes ── */
+body.mode-jp .romaji, body.mode-jp .kr { display: none; }
+body.mode-romaji .jp, body.mode-romaji .kr { display: none; }
+body.mode-kr .jp, body.mode-kr .romaji { display: none; }
